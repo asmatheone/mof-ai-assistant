@@ -19,14 +19,6 @@ st.markdown(
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
-
-   
-#MainMenu, footer, .css-qri22k, .css-164nlkn {
-    visibility: hidden;
-    display: none;
-}
-
-
     
     .stApp {
         background-color: #ffffff;
@@ -65,9 +57,7 @@ api_key = st.secrets["OPENAI_API_KEY"]
 openai.api_key = api_key
 
 
-
 # رسائل النظام المختلفة
-system_message_business_continuity = "أنت محلل مختص في استمرارية الأعمال ضمن وزارة المالية السعودية. قم بتحليل المخاطر العالمية والطبيعية والمناخية والجيوسياسية والاقتصادية، التي قد تؤثر ماليًا على المملكة العربية السعودية، مثل انقطاع الإمدادات، الصادرات والواردات، الكوارث الطبيعية، النزاعات، وتغيرات السوق. قدم التحليل بشكل شامل، واضح، ورسمي."
 system_message_general = (
     "أنت مساعد ذكي رسمي يعمل في وزارة المالية. أجب فقط على الأسئلة المتعلقة بوزارة المالية وإداراتها، بما في ذلك وليس حصرًا: إدارة الأمن السيبراني، إدارة حوكمة البيانات، الإدارة التقنية، الإدارة العامة للحوكمة والمخاطر، الهيكلة الإدارية، الاستراتيجيات، الإجراءات المالية، وكل ما يتعلق بالمهام الرسمية للوزارة. تجاهل أي أسئلة لا ترتبط مباشرة بوزارة المالية."
 )
@@ -99,11 +89,11 @@ task = st.selectbox("اختر نوع المهمة", [
     "تلخيص مستند",
     "مساعدة في كتابة بريد إلكتروني",
     "صياغة سياسة جديدة",
-    "المخاطر المتوقعة للمؤشرات", "تنبؤ بمخاطر استمرارية الأعمال"
+    "المخاطر المتوقعة للمؤشرات"
 ])
 
 # المهام
-if task == "المخاطر المتوقعة للمؤشرات", "تنبؤ بمخاطر استمرارية الأعمال":
+if task == "المخاطر المتوقعة للمؤشرات":
     indicator = st.text_area("اكتب اسم المؤشر أو وصفه")
     if st.button("تحليل المخاطر المتوقعة"):
         if indicator:
@@ -193,24 +183,6 @@ elif task == "صياغة سياسة جديدة":
                 with open(docx_path, "rb") as f:
                     st.download_button("تحميل السياسة كـ Word", f, file_name=docx_path)
 
-
-elif task == "تنبؤ بمخاطر استمرارية الأعمال":
-    risk_context = st.text_area("صف نوع العمل أو المجال المالي المرتبط بوزارة المالية")
-    if st.button("تحليل المخاطر العالمية المحتملة"):
-        if risk_context:
-            with st.spinner("جاري تحليل المخاطر العالمية واستمرارية الأعمال..."):
-                response = openai.ChatCompletion.create(
-                    model="gpt-3.5-turbo",
-                    messages=[
-                        {"role": "system", "content": system_message_business_continuity},
-                        {"role": "user", "content": risk_context}
-                    ]
-                )
-                risks = response.choices[0].message["content"] + signature
-                st.markdown("### المخاطر العالمية واستمرارية الأعمال:")
-                st.write(risks)
-
-
 else:
     user_input = st.text_area("اكتب سؤالك هنا")
     if st.button("إرسال"):
@@ -226,7 +198,6 @@ else:
                 answer = response.choices[0].message["content"] + signature
                 st.markdown("### الإجابة:")
                 st.write(answer)
-
 
 
 # ✅ رسالة نهاية الصفحة
