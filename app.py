@@ -202,4 +202,4 @@ else:
 
 
 # ✅ رسالة نهاية الصفحة
-st.markdown('<div class="custom-footer">في حال واجهتك مشكلة يمكنك التواصل مع مكتب إدارة البيانات على البريد الالكتروني data@mof.gov.sa</div>', unsafe_allow_html=True)
+# st.markdown('<div class="custom-footer">في حال واجهتك مشكلة يمكنك التواصل مع مكتب إدارة البيانات على البريد الالكتروني data@mof.gov.sa</div>', unsafe_allow_html=True)
