@@ -38,7 +38,8 @@ st.markdown(
 )
 
 # الشعار والعنوان والتحذير
-st.image("download.png", width=120)
+st.image("logo_optimized_120.png.png", width=120)
+
 st.markdown("## مساعد وزارة المالية")
 st.markdown("### إدارة الحوكمة والمخاطر والالتزام")
 st.markdown('<div class="warning">يرجى الالتزام بسياسات خصوصية البيانات وحماية البيانات الشخصية المعتمدة في وزارة المالية</div>', unsafe_allow_html=True)
