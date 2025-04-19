@@ -1,10 +1,4 @@
-st.markdown("""
-    <style>
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
-    </style>
-""", unsafe_allow_html=True)
+
 
 import streamlit as st
 import openai
@@ -12,6 +6,15 @@ import os
 from PyPDF2 import PdfReader
 import docx
 from docx import Document
+
+# Remove stramlit header-footer
+st.markdown("""
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    </style>
+""", unsafe_allow_html=True)
 
 # إعدادات الصفحة
 st.set_page_config(page_title="مساعد وزارة المالية", page_icon=":office:", layout="centered")
