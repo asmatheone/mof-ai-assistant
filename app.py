@@ -46,7 +46,7 @@ st.markdown(
 
 
 # الشعار والعنوان والتحذير
-st.image("logo_optimized_120.png", width=120)
+st.image("logo.png", width=120)
 
 st.markdown("## مساعد وزارة المالية")
 st.markdown("### إدارة الحوكمة والمخاطر والالتزام")
