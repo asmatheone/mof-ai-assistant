@@ -9,33 +9,33 @@ from docx import Document
 # إعدادات الصفحة
 st.set_page_config(page_title="مساعد وزارة المالية", page_icon=":office:", layout="centered")
 
-# تنسيق CSS لتوسيط المحتوى وتلوين النص
+# تنسيق CSS لتوسيط العنوان ومحاذاة المحتوى لليمين
 st.markdown(
     """
     <style>
-    .centered {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+    .stApp {
+        background-color: #ffffff;
+        direction: rtl;
     }
-    h1, h2, h3, .stTextInput label, .stTextArea label, .stSelectbox label {
+    h1, h2, h3 {
         color: #004225 !important;
         text-align: center !important;
     }
-    .stApp {
-        background-color: #ffffff;
+    label, .stTextInput, .stTextArea, .stSelectbox {
+        text-align: right !important;
+        direction: rtl;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# واجهة التطبيق
-st.markdown('<div class="centered">', unsafe_allow_html=True)
-st.title("مساعد وزارة المالية - الحوكمة والمخاطر والالتزام")
-st.markdown('</div>', unsafe_allow_html=True)
+# الشعار والعنوان على سطرين
+st.image("download.png", width=120)
+st.markdown("## مساعد وزارة المالية")
+st.markdown("### إدارة الحوكمة والمخاطر والالتزام")
 
+# قراءة مفتاح API من الأسرار
 api_key = st.secrets["OPENAI_API_KEY"]
 openai.api_key = api_key
 
