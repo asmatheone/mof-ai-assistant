@@ -175,3 +175,8 @@ else:
                 answer = response.choices[0].message["content"] + signature
                 st.markdown("### الإجابة:")
                 st.write(answer)
+
+
+# ✅ رسالة نهاية الصفحة
+st.markdown('<div class="custom-footer">في حال وجود مشكلة الرجاء التواصل مع مكتب إدارة البيانات على البريد الالكتروني data@mof.gov.sa</div>', unsafe_allow_html=True)
+
