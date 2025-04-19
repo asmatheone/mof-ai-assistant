@@ -6,9 +6,35 @@ from PyPDF2 import PdfReader
 import docx
 from docx import Document
 
-st.set_page_config(page_title="مساعد وزارة المالية", page_icon=":office:")
+# إعدادات الصفحة
+st.set_page_config(page_title="مساعد وزارة المالية", page_icon=":office:", layout="centered")
 
+# تنسيق CSS لتوسيط المحتوى وتلوين النص
+st.markdown(
+    """
+    <style>
+    .centered {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    h1, h2, h3, .stTextInput label, .stTextArea label, .stSelectbox label {
+        color: #004225 !important;
+        text-align: center !important;
+    }
+    .stApp {
+        background-color: #ffffff;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# واجهة التطبيق
+st.markdown('<div class="centered">', unsafe_allow_html=True)
 st.title("مساعد وزارة المالية - الحوكمة والمخاطر والالتزام")
+st.markdown('</div>', unsafe_allow_html=True)
 
 api_key = st.secrets["OPENAI_API_KEY"]
 openai.api_key = api_key
