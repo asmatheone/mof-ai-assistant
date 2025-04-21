@@ -49,7 +49,7 @@ st.markdown(
 st.image("logo.png", width=120)
 
 st.markdown("## مساعد وزارة المالية")
-st.markdown("### إدارة الحوكمة والمخاطر والالتزام")
+#st.markdown("### إدارة الحوكمة والمخاطر والالتزام")
 st.markdown('<div class="warning">يرجى الالتزام بسياسات خصوصية البيانات وحماية البيانات الشخصية المعتمدة في وزارة المالية</div>', unsafe_allow_html=True)
 
 # إعداد المفتاح
